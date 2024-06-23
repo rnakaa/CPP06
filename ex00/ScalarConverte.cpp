@@ -16,6 +16,10 @@ LiteralType ScalarConverte::checkLiteral(const std::string &prm){
 		std::cout << "is Int" << std::endl;
 		return INT;
 	}
+	else if (isFLT(prm)){
+		std::cout << "is Flout" << std::endl;
+		return FLT;
+	}
 	return ERR;
 }
 
@@ -40,10 +44,18 @@ bool ScalarConverte::isInt(const std::string &prm){
 }
 
 bool ScalarConverte::isFloat(const std::string &prm){
-	if (prm.size() == 1 && !std::isdigit(prm[0])) {
-		return true;
-	}
-	return false;
+	size_t fpos = std::str.find("f");
+	if (fpos == std::string::npos)
+		return false;
+
+	prm.erase(fpos,1);
+
+	float f;
+	std::istringstream iss(prm);
+	iss >> f;
+	if (iss.fail())
+		return false;
+	return true;
 }
 
 bool ScalarConverte::isDouble(const std::string &prm){
