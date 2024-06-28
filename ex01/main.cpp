@@ -3,24 +3,22 @@
 #include "Data.hpp"
 
 int main (){
-		Data sampleData;
-		sampleData.value = 42;
-		sampleData.character = 'A';
+		Data originData;
+		originData.value = 42;
 		
-		Data* originalPtr = &sampleData;
+		Data* originPtr = &originData;
 		
-		uintptr_t serialized = Serializer::serialize(originalPtr);
-		Data* deserializedPtr = Serializer::deserialize(serialized);
+		uintptr_t serializedInt = Serializer::serialize(originPtr);
+		Data* deserializedPtr = Serializer::deserialize(serializedInt);
 		
-		if (originalPtr == deserializedPtr)
+		if (originPtr == deserializedPtr)
 		{
-		    std::cout << "Serialization and deserialization successful!" << std::endl;
-		    std::cout << "Original value: " << deserializedPtr->value << std::endl;
-		    std::cout << "Original character: " << deserializedPtr->character << std::endl;
+		    std::cout << "success" << std::endl;
+		    std::cout << "value: " << deserializedPtr->value << std::endl;
 		}
 		else
 		{
-		    std::cout << "Serialization and deserialization failed!" << std::endl;
+		    std::cout << "fail" << std::endl;
 		}
 		
 		return 0;

@@ -4,6 +4,5 @@
 struct Data
 {
 	int value;
-	char character;
 };
 #endif
