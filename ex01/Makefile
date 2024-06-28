@@ -5,9 +5,10 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = "serialization"
 
 SRCS = main.cpp\
-	   ScalarConverte.cpp
+	   Serializer.cpp
 
-HEADERS = ScalarConverte.hpp
+HEADERS = Serializer.hpp\
+		Data.hpp
 
 OBJS = $(SRCS:%.cpp=%.o)
 
