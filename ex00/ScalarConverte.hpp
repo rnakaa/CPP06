@@ -9,6 +9,7 @@ enum LiteralType{
 	FLT,
 	DBL,
 	ERR,
+	SPC,
 };
 
 class ScalarConverte{
@@ -23,6 +24,8 @@ class ScalarConverte{
 		static void convertFromInt(int i);
 		static void convertFromFloat(float f);
 		static void convertFromDouble(double d);
+		static void convertFromSpecial(std::string prm);
+		static bool isSpecial(const std::string &prm);
 
 	private:
 		ScalarConverte();
